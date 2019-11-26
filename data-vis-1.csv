@@ -1,0 +1,56 @@
+,Name,Category,Released
+0,Hadoop Core,big-data,2006
+1,Hadoop Yarn,big-data,2012
+2,Hadoop HDFS,big-data,2009
+3,Hadoop MapReduce,big-data,2009
+4,Flink,big-data,2015
+5,Spark,big-data,2014
+6,Ozie,big-data,2012
+7,Kafka,big-data,2013
+8,Storm,big-data,2017
+9,Giraph,big-data,2018
+10,Hive,database,2010
+11,Cassandra,database,2009
+12,Lucene Core,database,2006
+13,HBase,database,2015
+14,ZooKeeper,database,2011
+15,Derby,database,2005
+16,OpenJPA,database,2007
+17,Phoenix,database,2014
+18,Libcloud,cloud,2011
+19,jclouds,cloud,2013
+20,Mesos,cloud,2013
+21,VCL,cloud,2013
+22,Helix,cloud,2014
+23,Ignite,cloud,2015
+24,TomEE,network-server,2013
+25,Mina,network-server,2006
+26,Mina FtpServer,network-server,2008
+27,Mina SSHD,network-server,2009
+28,Mina Vysper,network-server,2010
+29,Camel,network-server,2009
+30,MyFaces,web-framework,2005
+31,Struts,web-framework,2002
+32,Nutch,web-framework,2012
+33,Isis,web-framework,2013
+34,Solr,web-framework,2006
+35,Tapestry,web-framework,2006
+36,Kerby,security,2006
+37,Fortress,security,2015
+38,Syncope,security,2012
+39,Archiva,build-management,2007
+40,Ivy,build-management,2006
+41,Maven,build-management,2012
+42,Buildr,build-management,2009
+43,Commons Compress,library,2009
+44,Commons Collections,library,2001
+45,Commons IO,library,2004
+46,Commons Math,library,2004
+47,Commons Codec,library,2003
+48,Commons Lang,library,2002
+49,Log4J 2,library,2014
+50,Crunch,library,2013
+51,Tika,library,2011
+52,SystemML,machine-learning,2017
+53,Mahout,machine-learning,2010
+54,MADlib,machine-learning,2017
