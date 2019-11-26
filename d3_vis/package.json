@@ -1,0 +1,14 @@
+{
+  "name": "@julianapsa/tempo-medio-de-resolucao-prioridade-do-bug",
+  "main": "8e38ce6fa3f9d830@239.js",
+  "version": "239.0.0",
+  "homepage": "https://observablehq.com/@julianapsa/tempo-medio-de-resolucao-prioridade-do-bug",
+  "author": {
+    "name": "julianapsa",
+    "url": "https://observablehq.com/@julianapsa"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
