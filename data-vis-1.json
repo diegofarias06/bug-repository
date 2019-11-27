@@ -1,0 +1,332 @@
+[
+  {
+    "": 0,
+    "Name": "Hadoop Core",
+    "Category": "big-data",
+    "Released": 2006
+  },
+  {
+    "": 1,
+    "Name": "Hadoop Yarn",
+    "Category": "big-data",
+    "Released": 2012
+  },
+  {
+    "": 2,
+    "Name": "Hadoop HDFS",
+    "Category": "big-data",
+    "Released": 2009
+  },
+  {
+    "": 3,
+    "Name": "Hadoop MapReduce",
+    "Category": "big-data",
+    "Released": 2009
+  },
+  {
+    "": 4,
+    "Name": "Flink",
+    "Category": "big-data",
+    "Released": 2015
+  },
+  {
+    "": 5,
+    "Name": "Spark",
+    "Category": "big-data",
+    "Released": 2014
+  },
+  {
+    "": 6,
+    "Name": "Ozie",
+    "Category": "big-data",
+    "Released": 2012
+  },
+  {
+    "": 7,
+    "Name": "Kafka",
+    "Category": "big-data",
+    "Released": 2013
+  },
+  {
+    "": 8,
+    "Name": "Storm",
+    "Category": "big-data",
+    "Released": 2017
+  },
+  {
+    "": 9,
+    "Name": "Giraph",
+    "Category": "big-data",
+    "Released": 2018
+  },
+  {
+    "": 10,
+    "Name": "Hive",
+    "Category": "database",
+    "Released": 2010
+  },
+  {
+    "": 11,
+    "Name": "Cassandra",
+    "Category": "database",
+    "Released": 2009
+  },
+  {
+    "": 12,
+    "Name": "Lucene Core",
+    "Category": "database",
+    "Released": 2006
+  },
+  {
+    "": 13,
+    "Name": "HBase",
+    "Category": "database",
+    "Released": 2015
+  },
+  {
+    "": 14,
+    "Name": "ZooKeeper",
+    "Category": "database",
+    "Released": 2011
+  },
+  {
+    "": 15,
+    "Name": "Derby",
+    "Category": "database",
+    "Released": 2005
+  },
+  {
+    "": 16,
+    "Name": "OpenJPA",
+    "Category": "database",
+    "Released": 2007
+  },
+  {
+    "": 17,
+    "Name": "Phoenix",
+    "Category": "database",
+    "Released": 2014
+  },
+  {
+    "": 18,
+    "Name": "Libcloud",
+    "Category": "cloud",
+    "Released": 2011
+  },
+  {
+    "": 19,
+    "Name": "jclouds",
+    "Category": "cloud",
+    "Released": 2013
+  },
+  {
+    "": 20,
+    "Name": "Mesos",
+    "Category": "cloud",
+    "Released": 2013
+  },
+  {
+    "": 21,
+    "Name": "VCL",
+    "Category": "cloud",
+    "Released": 2013
+  },
+  {
+    "": 22,
+    "Name": "Helix",
+    "Category": "cloud",
+    "Released": 2014
+  },
+  {
+    "": 23,
+    "Name": "Ignite",
+    "Category": "cloud",
+    "Released": 2015
+  },
+  {
+    "": 24,
+    "Name": "TomEE",
+    "Category": "network-server",
+    "Released": 2013
+  },
+  {
+    "": 25,
+    "Name": "Mina",
+    "Category": "network-server",
+    "Released": 2006
+  },
+  {
+    "": 26,
+    "Name": "Mina FtpServer",
+    "Category": "network-server",
+    "Released": 2008
+  },
+  {
+    "": 27,
+    "Name": "Mina SSHD",
+    "Category": "network-server",
+    "Released": 2009
+  },
+  {
+    "": 28,
+    "Name": "Mina Vysper",
+    "Category": "network-server",
+    "Released": 2010
+  },
+  {
+    "": 29,
+    "Name": "Camel",
+    "Category": "network-server",
+    "Released": 2009
+  },
+  {
+    "": 30,
+    "Name": "MyFaces",
+    "Category": "web-framework",
+    "Released": 2005
+  },
+  {
+    "": 31,
+    "Name": "Struts",
+    "Category": "web-framework",
+    "Released": 2002
+  },
+  {
+    "": 32,
+    "Name": "Nutch",
+    "Category": "web-framework",
+    "Released": 2012
+  },
+  {
+    "": 33,
+    "Name": "Isis",
+    "Category": "web-framework",
+    "Released": 2013
+  },
+  {
+    "": 34,
+    "Name": "Solr",
+    "Category": "web-framework",
+    "Released": 2006
+  },
+  {
+    "": 35,
+    "Name": "Tapestry",
+    "Category": "web-framework",
+    "Released": 2006
+  },
+  {
+    "": 36,
+    "Name": "Kerby",
+    "Category": "security",
+    "Released": 2006
+  },
+  {
+    "": 37,
+    "Name": "Fortress",
+    "Category": "security",
+    "Released": 2015
+  },
+  {
+    "": 38,
+    "Name": "Syncope",
+    "Category": "security",
+    "Released": 2012
+  },
+  {
+    "": 39,
+    "Name": "Archiva",
+    "Category": "build-management",
+    "Released": 2007
+  },
+  {
+    "": 40,
+    "Name": "Ivy",
+    "Category": "build-management",
+    "Released": 2006
+  },
+  {
+    "": 41,
+    "Name": "Maven",
+    "Category": "build-management",
+    "Released": 2012
+  },
+  {
+    "": 42,
+    "Name": "Buildr",
+    "Category": "build-management",
+    "Released": 2009
+  },
+  {
+    "": 43,
+    "Name": "Commons Compress",
+    "Category": "library",
+    "Released": 2009
+  },
+  {
+    "": 44,
+    "Name": "Commons Collections",
+    "Category": "library",
+    "Released": 2001
+  },
+  {
+    "": 45,
+    "Name": "Commons IO",
+    "Category": "library",
+    "Released": 2004
+  },
+  {
+    "": 46,
+    "Name": "Commons Math",
+    "Category": "library",
+    "Released": 2004
+  },
+  {
+    "": 47,
+    "Name": "Commons Codec",
+    "Category": "library",
+    "Released": 2003
+  },
+  {
+    "": 48,
+    "Name": "Commons Lang",
+    "Category": "library",
+    "Released": 2002
+  },
+  {
+    "": 49,
+    "Name": "Log4J 2",
+    "Category": "library",
+    "Released": 2014
+  },
+  {
+    "": 50,
+    "Name": "Crunch",
+    "Category": "library",
+    "Released": 2013
+  },
+  {
+    "": 51,
+    "Name": "Tika",
+    "Category": "library",
+    "Released": 2011
+  },
+  {
+    "": 52,
+    "Name": "SystemML",
+    "Category": "machine-learning",
+    "Released": 2017
+  },
+  {
+    "": 53,
+    "Name": "Mahout",
+    "Category": "machine-learning",
+    "Released": 2010
+  },
+  {
+    "": 54,
+    "Name": "MADlib",
+    "Category": "machine-learning",
+    "Released": 2017
+  }
+]

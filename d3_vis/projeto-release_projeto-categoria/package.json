@@ -1,0 +1,14 @@
+{
+  "name": "@julianapsa/visualizacao-projeto-release-e-projeto-categoria",
+  "main": "d0b387f3f4c6fb3a@682.js",
+  "version": "682.0.0",
+  "homepage": "https://observablehq.com/@julianapsa/visualizacao-projeto-release-e-projeto-categoria",
+  "author": {
+    "name": "julianapsa",
+    "url": "https://observablehq.com/@julianapsa"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
