@@ -373,13 +373,13 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.<br><b>
                     2 Gráficos de calendarios: i) mostrando o lançamento de versão e numero de bugs resolvido; ii) mostrando o lançamento de versões e o numero de bugs reportados</p></b>
                     <div class="selectall-example4" >
-                      <svg width="800" height="300"></svg>
+                      <svg width="800" height="800"></svg>
                     </div>
 
                     <div>
                         <script>
-    
-						    var title="Migrant deaths in the Mediterranean";
+                        	sample = [d3.csv("https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv")]
+                        	var title="Migrant deaths in the Mediterranean";
 						    var units=" dead or missing";
 						    var breaks=[10,25,50,100];
 						    var colours=["#ffffd4","#fed98e","#fe9929","#d95f0e","#993404"];
@@ -392,22 +392,22 @@
 						    var calX=25;
 						    var width = 960;
 						    var height = 163;
-						    var parseDate = d3.timeFormat("%d/%m/%y").parse
-						    format = d3.timeFormat("%d-%m-%Y")
-						    toolDate = d3.timeFormat("%d/%b/%y")
+						    var parseDate = d3.timeFormat("%d/%m/%y");	
+						    format = d3.timeFormat("%d-%m-%Y");
+						    toolDate = d3.timeFormat("%d/%b/%y");
 						    
-						    d3.csv("https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv").then(function(data) {
-						        
+						    d3.csv("https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv", function(error, data) {
+						        data = [data]
 						        //set up an array of all the dates in the data which we need to work out the range of the data
 						        var dates = new Array();
 						        var values = new Array();
-						        console.log(data)
+						        
 						        //parse the data
-						        data.forEach(function(d){
-						                dates.push(parseDate(d.date));
-						                values.push(d.value);
-						                d.date=parseDate(d.date);
-						                d.value=d.value;
+						        data.forEach(function(d)    {
+						                dates.push(parseDate(d.Date));
+						                values.push(d.AnswerCount);
+						                d.date=parseDate(d.Date);
+						                d.value=d.AnswerCount;
 						                d.year=d.date.getFullYear();//extract the year from the data
 						        });
 						        
@@ -415,18 +415,18 @@
 						            .key(function(d){return d.year;})
 						            .entries(data);
 						        
-						        var svg_c = d3.select("body").append("svg")
+						        var svg = d3.select("body").append("svg")
 						            .attr("width","90%")
 						            .attr("viewBox","0 0 "+(xOffset+width)+" 540")
 						            
 						        //title
-						        svg_c.append("text")
+						        svg.append("text")
 						        .attr("x",xOffset)
 						        .attr("y",20)
 						        .text(title);
 						        
 						        //create an SVG group for each year
-						        var cals = svg_c.selectAll("g")
+						        var cals = svg.selectAll("g")
 						            .data(yearlyData)
 						            .enter()
 						            .append("g")
@@ -534,7 +534,6 @@
 						            boxCentre = d.width/2;
 						            monthX.push(xOffset+calX+d.x+boxCentre);
 						        })
-
 						        //create centred month labels around the bounding box of each month path
 						        //create day labels
 						        var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -548,7 +547,7 @@
 						        })
 						        
 						         //create key
-						        var key = svg_c.append("g")
+						        var key = svg.append("g")
 						            .attr("id","key")
 						            .attr("class","key")
 						            .attr("transform",function(d){
@@ -597,8 +596,7 @@
 						          + "H" + (w1 + 1) * cellSize + "V" + 0
 						          + "H" + (w0 + 1) * cellSize + "Z";
 						    }
-
-						</script>
+</script>
                     </div>
                 </div>
                 <br>
