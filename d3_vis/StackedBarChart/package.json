@@ -1,0 +1,14 @@
+{
+  "name": "393d68a7d77651d8",
+  "main": "393d68a7d77651d8@500.js",
+  "version": "500.0.0",
+  "homepage": "https://observablehq.com/d/393d68a7d77651d8",
+  "author": {
+    "name": "julianapsa",
+    "url": "https://observablehq.com/@julianapsa"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
