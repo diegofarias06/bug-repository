@@ -4,6 +4,9 @@ big-data,Critical,2061
 big-data,Major,11849
 big-data,Minor,3509
 big-data,Trivial,810
+big-data,Low,0
+big-data,Normal,0
+big-data,Urgent,0
 build-management,Blocker,41
 build-management,Critical,52
 build-management,Major,792
