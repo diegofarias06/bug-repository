@@ -1,0 +1,56 @@
+,From,To,qtd
+0,Accepted,Closed,4
+1,Accepted,In Progress,1752
+2,Accepted,Open,5
+3,Accepted,Resolved,188
+4,Accepted,Reviewable,49
+5,Awaiting Feedback,In Progress,12
+6,Awaiting Feedback,Open,9
+7,Awaiting Feedback,Patch Available,40
+8,Awaiting Feedback,Ready to Commit,2
+9,Awaiting Feedback,Resolved,17
+10,Awaiting Feedback,Testing,1
+11,Closed,Open,94
+12,Closed,Reopened,1562
+13,Closed,Resolved,25
+14,In Progress,Accepted,32
+15,In Progress,Awaiting Feedback,26
+16,In Progress,Closed,721
+17,In Progress,Open,942
+18,In Progress,Patch Available,4649
+19,In Progress,Ready To Review,33
+20,In Progress,Resolved,7781
+21,In Progress,Reviewable,1485
+22,Open,Accepted,1598
+23,Open,Awaiting Feedback,55
+24,Open,Closed,5040
+25,Open,In Progress,12161
+26,Open,Open,35
+27,Open,Patch Available,36112
+28,Open,Reopened,5
+29,Open,Resolved,29556
+30,Patch Available,Closed,10
+31,Patch Available,In Progress,1339
+32,Patch Available,Open,10141
+33,Patch Available,Patch Available,5
+34,Patch Available,Ready to Commit,609
+35,Patch Available,Reopened,2
+36,Patch Available,Resolved,29688
+37,Patch Available,Testing,48
+38,Ready To Review,Resolved,32
+39,Ready to Commit,In Progress,10
+40,Ready to Commit,Open,24
+41,Ready to Commit,Resolved,577
+42,Reopened,Closed,658
+43,Reopened,In Progress,294
+44,Reopened,Open,7
+45,Reopened,Patch Available,1033
+46,Reopened,Reopened,31
+47,Reopened,Resolved,3442
+48,Resolved,Accepted,368
+49,Resolved,Closed,31796
+50,Resolved,Reopened,3863
+51,Reviewable,In Progress,101
+52,Reviewable,Resolved,1434
+53,Testing,Open,23
+54,Testing,Resolved,26

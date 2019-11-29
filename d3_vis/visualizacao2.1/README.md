@@ -1,6 +1,6 @@
-# Stacked Bar Chart
+# Visualização 2.1 - Quantidade de relatorios por categoria
 
-https://observablehq.com/d/393d68a7d77651d8@500
+https://observablehq.com/d/ace25a17141623d6@719
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/393d68a7d77651d8.tgz?v=3
+npm install https://api.observablehq.com/d/ace25a17141623d6.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "393d68a7d77651d8";
+import define from "ace25a17141623d6";
 ~~~
 
 To log the value of the cell named “foo”:
