@@ -1,18 +1,25 @@
     
-    calendar_chart({'value': 'rides_per_day'});
+    calendar_chart({'value': 'empresa_1'});
 
-
-    // "data/rides_per_sex.csv"
     function calendar_chart(selectObject) {
-        require(["https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"], function (d3) {
+
+        d3 = require(['d3']);
+        require(["https://d3js.org/d3.v5.min.js"], function (d3) {
         var type_chart = selectObject.value; 
-        if (type_chart == 'rides_per_day') {
-            var file_name =  "data/rides_per_sex.csv";
-        } else if (type_chart == 'avg_ride_per_day') {
-            var file_name =  "data/avg_time_ride_day.csv";
-        } else if (type_chart == 'rides_per_station') {
-            var file_name =  "data/rides_per_sex.csv";
+        if (type_chart == 'empresa_1') {
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+        } else if (type_chart == 'empresa_1') {
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+        } else if (type_chart == 'empresa_1') {
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
         }
+
+        data_raw = d3.csv(file_name, function(data) {
+          console.log(data[0]);
+          return data
+        });
+
+        console.log(data_raw)
 
         var formatDate1 = d3.time.format('%Y-%m-%d');
         var formatDate2 = d3.time.format('%d/%m/%Y');
@@ -29,25 +36,25 @@
                 pO = 100 * d.Others / total;
 
 
-                if (type_chart == 'rides_per_day') {
-                    return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
-                                   Total: ${total} <br />
-                                   Masculino: ${d.Men} (${formatP(pM)}%)<br />
-                                   Feminino: ${d.Women} (${formatP(pW)}%)<br />
-                                   Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
-                } else if (type_chart == 'avg_ride_per_day') {
-                    return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
-                                   Média: ${d.avg} <br />
-                                   Masculino: ${d.Men} (${formatP(pM)}%)<br />
-                                   Feminino: ${d.Women} (${formatP(pW)}%)<br />
-                                   Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
-                } else if (type_chart == 'rides_per_station') {
-                    return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
-                                   Total: ${total} <br />
-                                   Masculino: ${d.Men} (${formatP(pM)}%)<br />
-                                   Feminino: ${d.Women} (${formatP(pW)}%)<br />
-                                   Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
-                }
+                // if (type_chart == 'rides_per_day') {
+                //     return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
+                //                    Total: ${total} <br />
+                //                    Masculino: ${d.Men} (${formatP(pM)}%)<br />
+                //                    Feminino: ${d.Women} (${formatP(pW)}%)<br />
+                //                    Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
+                // } else if (type_chart == 'avg_ride_per_day') {
+                //     return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
+                //                    Média: ${d.avg} <br />
+                //                    Masculino: ${d.Men} (${formatP(pM)}%)<br />
+                //                    Feminino: ${d.Women} (${formatP(pW)}%)<br />
+                //                    Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
+                // } else if (type_chart == 'rides_per_station') {
+                //     return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
+                //                    Total: ${total} <br />
+                //                    Masculino: ${d.Men} (${formatP(pM)}%)<br />
+                //                    Feminino: ${d.Women} (${formatP(pW)}%)<br />
+                //                    Outros: ${d.Others} (${pO == 0? 0.0:formatP(pO)}%)`;
+                // }
 
                 // return    `<strong>Data: ${formatDate2(d.dia)} (${dias[d.dia.getDay()]}) </strong><br /><div id='viagens_dia'></div><hr />
                 //                    Total: ${total} <br />
@@ -72,10 +79,10 @@
             }
         // var title="Número de viagens ao longo dos anos";
         var title="";
-        var units=" Viagens";
+        var units=" Bugs Por Dia";
 
-        if (type_chart == 'rides_per_day') {
-            var breaks = [500,1000,1500,2000,2500];
+        if (type_chart == 'empresa_1') {
+            var breaks = [0, 1, 5, 10, 14];
         } else if (type_chart == 'avg_ride_per_day') {
             var breaks = [10,20,30,50,100];
         } else if (type_chart == 'rides_per_station') {
@@ -102,17 +109,16 @@
         format = d3.time.format("%Y-%m-%dd");
         toolDate = d3.time.format("%Y-%m-%d");
         
-        d3.csv("https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv", function(error, data) {
+        d3.csv(file_name, function(error, data) {
         // d3.csv("data/avg_time_ride_day.csv", function(error, data) {
             
             //set up an array of all the dates in the data which we need to work out the range of the data
-            data = [data]
             var dates = new Array();
             var values = new Array();
             var median = d3.format(".2f");
             //parse the data
             data.forEach(function(d)    {
-                    dates.push(parseDate(d.Data));
+                    dates.push(parseDate(d.dia));
                     d.dia=parseDate(d.dia);
                     d.year=d.dia.getFullYear();//extract the year from the data
 
@@ -367,4 +373,4 @@
               + "H" + (w0 + 1) * cellSize + "Z";
         }
     });
-    };
+}    
