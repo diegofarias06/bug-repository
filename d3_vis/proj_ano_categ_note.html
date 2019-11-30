@@ -8,8 +8,17 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 // Your notebook, compiled as an ES module.
 import notebook from "https://api.observablehq.com/@julianapsa/visualizacao-projeto-release-e-projeto-categoria.js?v=3";
 
-// Load the notebook, observing its cells with a default Inspector
-// that simply renders the value of each cell into the provided DOM node.
-new Runtime().module(notebook, Inspector.into(document.body));
+ // list the cells you want displayed in HTML elements here
+const displayedCells = ["projectsByYear", "projectsByCategory"];
+new Runtime().module(notebook, name => {
+  if (displayedCells.includes(name)) {
+    return new Inspector(document.querySelector("#"+name));
+  } else return true; // this ensures that all notebook cells are run, even if they aren't displayed
+})
 
 </script>
+
+<div id="projectsByYear"></div>
+<div id="projectsByCategory"></div>
+
+</body>
