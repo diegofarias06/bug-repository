@@ -1,12 +1,12 @@
     
-    calendar_chart({'value': 'HIVE'});
+    calendar_chart({'value': 'hive'});
 
     function calendar_chart(selectObject) {
 
         // d3 = requirejs(['d3']);
         // require(["https://d3js.org/d3.v5.min.js"], function (d3) {
         var type_chart = selectObject.value; 
-        if (type_chart == 'HIVE') {
+        if (type_chart == 'hive') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
         } else if (type_chart == 'spark') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
@@ -73,12 +73,16 @@
         var title="";
         var units=" Bugs Por Dia";
 
-        if (type_chart == 'empresa_1') {
+        if (type_chart == 'hive') {
             var breaks = [1, 4, 7, 10, 13];
-        } else if (type_chart == 'avg_ride_per_day') {
-            var breaks = [10,20,30,50,100];
-        } else if (type_chart == 'rides_per_station') {
-            var breaks = [10,15,25,35,50];
+        } else if (type_chart == 'spark') {
+            var breaks = [2, 7, 12, 17, 22];
+        } else if (type_chart == 'hbase') {
+            var breaks = [1,4,9,13,19];
+        }else if (type_chart == 'cassandra') {
+            var breaks = [1, 3, 5, 7, 10];
+        }else if (type_chart == 'camel') {
+            var breaks = [1,3,7,9,11];
         }
 
 
@@ -87,7 +91,7 @@
         // var breaks=[10,20,50,100,400];
         // var colours=["#FFFFCC","#C7E9B4","#7FCDBB","#41B6C4","#2C7FB8","#253494"];
         // var colours=["#edf8fb","#ccece6","#99d8c9","#66c2a4","#2ca25f","#006d2c"];
-        var colours=["#99d8c9","#66c2a4","#41ae76","#238b45","#006d2c","#00441b"]
+        var colours=['#edf8fb','#bfd3e6','#9ebcda','#8c96c6','#8856a7','#810f7c']
 
         //general layout information
         var cellSize = 17;
@@ -109,7 +113,6 @@
             var values = new Array();
             var median = d3.format(".2f");
             //parse the data
-            console.log(data)
             data.forEach(function(d)    {
                     dates.push(parseDate(d.date));
                     d.dia=parseDate(d.date);
@@ -206,18 +209,9 @@
                 .attr("x", function(d){return xOffset+calX+(d3.time.weekOfYear(d.dia) * cellSize);})
                 .attr("y", function(d) { return calY+(d.dia.getDay() * cellSize); })
                 .attr("fill", function(d) {
-                    // sum = (d.Men + d.Women + d.Others);
-
-
-                    if (type_chart == 'empresa_1') {
-                        sum = d.value;
-                    } else if (type_chart == 'avg_ride_per_day') {
-                        sum = d.avg;
-                    } else if (type_chart == 'rides_per_station') {
-                        sum = (d.Men + d.Women + d.Others) / 3;
-                    }
-
-
+                    
+                    sum = d.value;
+            
                     if (sum<=0) {
                         return "#FFFFFF";
                     }
