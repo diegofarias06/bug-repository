@@ -434,46 +434,22 @@
                     <h2>Lançamento de versões</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.<br><b>
                     2 Gráficos de calendarios: i) mostrando o lançamento de versão e numero de bugs resolvido; ii) mostrando o lançamento de versões e o numero de bugs reportados</p></b>
-                    <div class="selectall-example4" >
-                      <svg width="1000" height="1000"></svg>
-                    </div>
-<!-- 
-                    <div>
-         	            <script>
-
-    					</script>
-                    </div> -->
-                </div>
-                <br>
-                <div class="selectall-example5" >
-                      <svg width="800" height="300"></svg>
+             
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Selecione uma das opções</label>
+                      <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(this)">
+                        <option value="hive">HIVE</option>
+                        <option value="spark">SPARK</option>
+                        <option value="hbase">HBASE</option>
+                        <option value="cassandra">CASSANDRA</option>
+                        <option value="camel">CAMEL</option>
+                      </select>
                     </div>
 
-<!--                     <div>
-                        <script>
-                            const svg5 = d3.select('.selectall-example5').select("svg") 
-                          
-                            svg5.append('rect')
-                               .attr("x", "50")
-                               .attr("y", "50")
-                            svg5.append('rect')
-                               .attr("x", "300")
-                               .attr("y", "50")
-                            svg5.append('rect')
-                               .attr("x", "550")
-                               .attr("y", "50")
-                            svg5.selectAll('rect')
-                               .attr("width", "200")
-                               .attr("height", "200")
-                               .style('fill', 'gray')
-                               .style('stroke', '#777')
-                               .style('stroke-width', '10')
-                        </script>
-                    </div>
-            </div>
-                </div>
-            </div>
- -->        </div>
+                </div>                
+        </div>
+                    <div class="col-sm-12" id="calendar_viagens"></div>
+
     </section>
     <!--SERVICE AREA END-->
 
@@ -485,20 +461,10 @@
                     <h2>Tempo</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.<br><b>
                     2 Gráficos tempo: i) mostrando como os bugs mudam de estado ao decorrer do tempo; ii) mostrando como os bugs mudam de prioridade ao decorrer do tempo</p></b>
-                    <div class="form-group">
-			          <label for="exampleFormControlSelect1">Selecione uma das opções</label>
-			          <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(this)">
-			            <option value="empresa_1">HIVE</option>
-			            <option value="empresa_2">SPARK</option>
-			            <option value="empresa_3">HBASE</option>
-			            <option value="empresa_4">CASSANDRA</option>
-			            <option value="empresa_5">CAMEL</option>
-			          </select>
-			        </div>
+                    
                 </div>
             </div>
-            <div id="calendar_viagens"></div>
-
+            <div id="status_from_to"></div>
         </div>
 
     </section>
@@ -667,5 +633,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </body>
 <script src="js/calendar.js"></script>
+<script src="js/chord_graphic.js"></script>
+
 
 </html>

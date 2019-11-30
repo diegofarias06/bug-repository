@@ -7,18 +7,18 @@
         // require(["https://d3js.org/d3.v5.min.js"], function (d3) {
         var type_chart = selectObject.value; 
         if (type_chart == 'hive') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive.csv";
         } else if (type_chart == 'spark') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
         } else if (type_chart == 'hbase') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hbase.csv";
         } else if (type_chart == 'cassandra') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra.csv";
         }else if (type_chart == 'camel') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_camel.csv";
         }
 
-
+        console.log(type_chart)
         var formatDate1 = d3.time.format('%Y-%m-%d');
         var formatDate2 = d3.time.format('%d/%m/%Y');
         var formatP = d3.format('.1f');
@@ -86,6 +86,7 @@
         }
 
 
+        console.log(breaks)
         // var breaks = type == 'count'? [500,1000,1500,2000,2500] : [10,20,50,100,400];
 
         // var breaks=[10,20,50,100,400];
@@ -114,8 +115,8 @@
             var median = d3.format(".2f");
             //parse the data
             data.forEach(function(d)    {
-                    dates.push(parseDate(d.date));
-                    d.dia=parseDate(d.date);
+                    dates.push(parseDate(d.ResolutionDateDay));
+                    d.dia=parseDate(d.ResolutionDateDay);
                     d.year=d.dia.getFullYear();//extract the year from the data
 
 
@@ -210,10 +211,10 @@
                 .attr("y", function(d) { return calY+(d.dia.getDay() * cellSize); })
                 .attr("fill", function(d) {
                     
-                    sum = d.value;
+                    sum = d.Key;
             
                     if (sum<=0) {
-                        return "#FFFFFF";
+                        return "'#ffffff";
                     }
                     for (i=0;i<breaks.length+1;i++){
                         if (sum<=breaks[i]){
@@ -245,7 +246,7 @@
 
             //append a title element to give basic mouseover info
             dataRects.append("title")
-                .text(function(d) { return toolDate(d.dia)+"\nNúmero de Bugs: "+d.value;});
+                .text(function(d) { return toolDate(d.dia)+"\nNúmero de Bugs: "+d.Key;});
             
             // dataRects.on("mouseover", function(d){
             //     d3.select(this)
