@@ -1,25 +1,23 @@
     
-    calendar_chart({'value': 'empresa_1'});
+    calendar_chart({'value': 'HIVE'});
 
     function calendar_chart(selectObject) {
 
-        d3 = require(['d3']);
-        require(["https://d3js.org/d3.v5.min.js"], function (d3) {
+        // d3 = requirejs(['d3']);
+        // require(["https://d3js.org/d3.v5.min.js"], function (d3) {
         var type_chart = selectObject.value; 
-        if (type_chart == 'empresa_1') {
+        if (type_chart == 'HIVE') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
-        } else if (type_chart == 'empresa_1') {
+        } else if (type_chart == 'spark') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
-        } else if (type_chart == 'empresa_1') {
+        } else if (type_chart == 'hbase') {
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+        } else if (type_chart == 'cassandra') {
+            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
+        }else if (type_chart == 'camel') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/teste_calendario.csv";
         }
 
-        data_raw = d3.csv(file_name, function(data) {
-          console.log(data[0]);
-          return data
-        });
-
-        console.log(data_raw)
 
         var formatDate1 = d3.time.format('%Y-%m-%d');
         var formatDate2 = d3.time.format('%d/%m/%Y');
@@ -28,12 +26,6 @@
         var dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 
         function chordTip (d) {
-                total = d.Men + d.Women + d.Others;
-                console.log(d)
-                
-                pM = 100 * d.Men / total;
-                pW = 100 * d.Women / total;
-                pO = 100 * d.Others / total;
 
 
                 // if (type_chart == 'rides_per_day') {
@@ -82,7 +74,7 @@
         var units=" Bugs Por Dia";
 
         if (type_chart == 'empresa_1') {
-            var breaks = [0, 1, 5, 10, 14];
+            var breaks = [1, 4, 7, 10, 13];
         } else if (type_chart == 'avg_ride_per_day') {
             var breaks = [10,20,30,50,100];
         } else if (type_chart == 'rides_per_station') {
@@ -117,26 +109,11 @@
             var values = new Array();
             var median = d3.format(".2f");
             //parse the data
+            console.log(data)
             data.forEach(function(d)    {
-                    dates.push(parseDate(d.dia));
-                    d.dia=parseDate(d.dia);
+                    dates.push(parseDate(d.date));
+                    d.dia=parseDate(d.date);
                     d.year=d.dia.getFullYear();//extract the year from the data
-
-                    if (type_chart == 'rides_per_day') {
-                        d.Men=parseInt(d.M_0);
-                        d.Women=parseInt(d.F_0);
-                        d.Others=parseInt(d.O_0);
-                    } else if (type_chart == 'avg_ride_per_day') {
-                        d.Men    = parseInt(d.M_0);
-                        d.Women  = parseInt(d.F_0);
-                        d.Others = parseInt(d.O_0);
-                        d.avg    = parseInt(d.media_viagens);
-                        
-                    } else if (type_chart == 'rides_per_station') {
-                        d.Men=parseInt(d.M_0 / d.num_of_stations);
-                        d.Women=parseInt(d.F_0 / d.num_of_stations);
-                        d.Others=parseInt(d.O_0 / d.num_of_stations);
-                    }
 
 
                     // d.Men=parseInt(d.M_0);
@@ -150,9 +127,10 @@
             
             d3.selectAll("#calendar_viagens > *").remove()
 
+            var heigthSize = yearlyData.length * 210
             var svg = d3.selectAll("#calendar_viagens").append("svg")
                 .attr("width","100%")
-                .attr("viewBox","0 0 "+(xOffset+width)+" 870")
+                .attr("viewBox","0 0 "+(xOffset+width)+" " + heigthSize.toString())
                 
             //title
             svg.append("text")
@@ -231,8 +209,8 @@
                     // sum = (d.Men + d.Women + d.Others);
 
 
-                    if (type_chart == 'rides_per_day') {
-                        sum = (d.Men + d.Women + d.Others);
+                    if (type_chart == 'empresa_1') {
+                        sum = d.value;
                     } else if (type_chart == 'avg_ride_per_day') {
                         sum = d.avg;
                     } else if (type_chart == 'rides_per_station') {
@@ -262,7 +240,6 @@
                           .style("top", function () { return (d3.event.pageY - 150)+"px"})
                           .style("left", function () { return (d3.event.pageX - 150)+"px";});
 
-                        plot_rides(formatDate1(d.dia), "#viagens_dia")
                      })
                      .on("mouseout", function (d) {
                         d3.select(this)
@@ -273,8 +250,8 @@
 
 
             //append a title element to give basic mouseover info
-            // dataRects.append("title")
-                // .text(function(d) { return toolDate(d.dia)+"\nSoma: "+(d.Men + d.Women + d.Others)+units+"\nHomens: "+d.Men+units+"\nMulheres: "+d.Women+units+"\nOutros: "+d.Others+units;});
+            dataRects.append("title")
+                .text(function(d) { return toolDate(d.dia)+"\nNúmero de Bugs: "+d.value;});
             
             // dataRects.on("mouseover", function(d){
             //     d3.select(this)
@@ -372,5 +349,5 @@
               + "H" + (w1 + 1) * cellSize + "V" + 0
               + "H" + (w0 + 1) * cellSize + "Z";
         }
-    });
+    // });
 }    

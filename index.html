@@ -30,6 +30,37 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <!--====== MAIN STYLESHEETS ======-->
+    <style>
+    .month {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2px;
+    }
+    .day {
+        fill: #fff;
+        stroke: #ccc;
+    }
+    text    {
+        font-family:sans-serif;
+        font-size:1.5em;
+    }
+    .dayLabel   {
+        fill:#aaa;
+        font-size:0.8em;
+    }
+    .monthLabel {
+        text-anchor:middle;
+        font-size:0.8em;
+        fill:#aaa;
+    }
+    .yearLabel  {
+        fill:#aaa;
+        font-size:1.2em;
+    }
+    
+    .key    {font-size:0.5em;}
+    
+</style>
     <link href="style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
 
@@ -42,8 +73,12 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
 
-	<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v5.min.js""></script> -->
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/mapper.js"></script>
 
 
 	<style>
@@ -303,9 +338,7 @@
                 texttexttexttexttexttexttexttexttexttexttextt<br>
                 texttexttexttexttexttexttexttexttexttexttextt<br>
                 Gráfico interativo que mostra a quantidade de relatorios por categorias de projeto ao lado um gráfico mostrando a qtd por prioridade, ao clicar em uma categoria atualiza o grafico de prioridade.<br></p>
-                
-<<<<<<< HEAD
-                       
+                                       
                 <div class="selectall-example2">
                   <svg width="800" height="300"></svg>
                 </div>
@@ -332,76 +365,7 @@
                     </script>
                 </div>
  -->
-=======
-								<meta charset="utf-8">
-
-								<!-- Load d3.js -->
-								<script src="https://d3js.org/d3.v4.js"></script>
-
-								<!-- Create a div where the graph will take place -->
-								<div id="my_dataviz"></div>
-
-									<div>
-
-										<script>
-
-												// set the dimensions and margins of the graph
-												var margin = {top: 30, right: 30, bottom: 30, left: 30},
-													width = 450 - margin.left - margin.right,
-													height = 450 - margin.top - margin.bottom;
-
-												// append the svg object to the body of the page
-												var svg = d3.select("#my_dataviz")
-												.append("svg")
-													.attr("width", width + margin.left + margin.right)
-													.attr("height", height + margin.top + margin.bottom)
-												.append("g")
-													.attr("transform",
-																"translate(" + margin.left + "," + margin.top + ")");
-
-												// Labels of row and columns
-												var myGroups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
-												var myVars = ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"]
-
-												// Build X scales and axis:
-												var x = d3.scaleBand()
-													.range([ 0, width ])
-													.domain(myGroups)
-													.padding(0.01);
-												svg.append("g")
-													.attr("transform", "translate(0," + height + ")")
-													.call(d3.axisBottom(x))
-
-												// Build X scales and axis:
-												var y = d3.scaleBand()
-													.range([ height, 0 ])
-													.domain(myVars)
-													.padding(0.01);
-												svg.append("g")
-													.call(d3.axisLeft(y));
-
-												// Build color scale
-												var myColor = d3.scaleLinear()
-													.range(["white", "#69b3a2"])
-													.domain([1,100])
-
-												//Read the data
-												d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/heatmap_data.csv", function(data) {
-
-													svg.selectAll()
-															.data(data, function(d) {return d.group+':'+d.variable;})
-															.enter()
-															.append("rect")
-															.attr("x", function(d) { return x(d.group) })
-															.attr("y", function(d) { return y(d.variable) })
-															.attr("width", x.bandwidth() )
-															.attr("height", y.bandwidth() )
-															.style("fill", function(d) { return myColor(d.value)} )
-												})
-										</script>
-								</div>
-
->>>>>>> 78a16d25870622ad6d76770f9189c285b64d0930
+							
             texttexttexttexttexttexttexttexttexttexttextt<br>
             texttexttexttexttexttexttexttexttexttexttextt<br>
             texttexttexttexttexttexttexttexttexttexttextt<br>
@@ -524,69 +488,19 @@
                     <div class="form-group">
 			          <label for="exampleFormControlSelect1">Selecione uma das opções</label>
 			          <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(this)">
-			            <option value="empresa_1">Empresa 1</option>
-			            <option value="empresa_2">Empresa 2</option>
-			            <option value="empresa_3">Empresa 3</option>
-			            <option value="empresa_4">Empresa 4</option>
-			            <option value="empresa_5">Empresa 5</option>
+			            <option value="empresa_1">HIVE</option>
+			            <option value="empresa_2">SPARK</option>
+			            <option value="empresa_3">HBASE</option>
+			            <option value="empresa_4">CASSANDRA</option>
+			            <option value="empresa_5">CAMEL</option>
 			          </select>
 			        </div>
-                    <div class="selectall-example6" >
-                      <svg width="800" height="300"></svg>
-                    </div>
-                	
-<!--                     <div>
-                        <script>
-                            const svg6 = d3.select('.selectall-example6').select("svg") 
-                          
-                            svg6.append('rect')
-                               .attr("x", "50")
-                               .attr("y", "50")
-                            svg6.append('rect')
-                               .attr("x", "300")
-                               .attr("y", "50")
-                            svg6.append('rect')
-                               .attr("x", "550")
-                               .attr("y", "50")
-                            svg6.selectAll('rect')
-                               .attr("width", "200")
-                               .attr("height", "200")
-                               .style('fill', 'brown')
-                               .style('stroke', '#777')
-                               .style('stroke-width', '10')
-                        </script>
-                    </div>
                 </div>
- -->                <br>
-                <div class="selectall-example7" >
-                      <svg width="800" height="300"></svg>
-                    </div>
+            </div>
+            <div id="calendar_viagens"></div>
 
-                   <!--  <div>
-                        <script>
-                            const svg7 = d3.select('.selectall-example7').select("svg") 
-                          
-                            svg7.append('rect')
-                               .attr("x", "50")
-                               .attr("y", "50")
-                            svg7.append('rect')
-                               .attr("x", "300")
-                               .attr("y", "50")
-                            svg7.append('rect')
-                               .attr("x", "550")
-                               .attr("y", "50")
-                            svg7.selectAll('rect')
-                               .attr("width", "200")
-                               .attr("height", "200")
-                               .style('fill', 'yellow')
-                               .style('stroke', '#777')
-                               .style('stroke-width', '10')
-                        </script>
-                    </div>
-            </div>
-                </div>
-            </div>
-        </div> -->
+        </div>
+
     </section>
 
 
@@ -750,10 +664,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!--===== ACTIVE JS=====-->
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTS_KEDfHXYBslFTI_qPJIybDP3eceE-A&sensor=false"></script>
-    <script src="js/maps.active.js"></script>
-        <script src="js/calendar.js"></script>
 
 </body>
+<script src="js/calendar.js"></script>
 
 </html>
