@@ -10,6 +10,7 @@
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive.csv";
         } else if (type_chart == 'spark') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
+            var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
         } else if (type_chart == 'hbase') {
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hbase.csv";
         } else if (type_chart == 'cassandra') {
@@ -18,7 +19,6 @@
             var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_camel.csv";
         }
 
-        console.log(type_chart)
         var formatDate1 = d3.time.format('%Y-%m-%d');
         var formatDate2 = d3.time.format('%d/%m/%Y');
         var formatP = d3.format('.1f');
@@ -86,7 +86,6 @@
         }
 
 
-        console.log(breaks)
         // var breaks = type == 'count'? [500,1000,1500,2000,2500] : [10,20,50,100,400];
 
         // var breaks=[10,20,50,100,400];
@@ -106,6 +105,21 @@
         format = d3.time.format("%Y-%m-%dd");
         toolDate = d3.time.format("%Y-%m-%d");
         
+        var releases = []
+        var dates_releases = []
+        var years_release = []
+        d3.json(releases_file, function(d){
+             d.releases.forEach(function(data){
+                data.dia=parseDate(data.date);
+                data.year=data.dia.getFullYear();
+                data.Key = 0;
+                releases.push(data)
+                dates_releases.push(data.dia);
+                // years_release.push(parseDate(data.date).getFullYear())
+            });
+        });
+
+        data2 = []
         d3.csv(file_name, function(error, data) {
         // d3.csv("data/avg_time_ride_day.csv", function(error, data) {
             
@@ -118,17 +132,27 @@
                     dates.push(parseDate(d.ResolutionDateDay));
                     d.dia=parseDate(d.ResolutionDateDay);
                     d.year=d.dia.getFullYear();//extract the year from the data
-
+                    data2.push(d)
 
                     // d.Men=parseInt(d.M_0);
                     // d.Women=parseInt(d.F_0);
                     // d.Others=parseInt(d.O_0);
             });
-            
+
+            releases.forEach(function(d){
+                data2.push(d);
+            });
+
+
             var yearlyData = d3.nest()
                 .key(function(d){return d.year;})
-                .entries(data);
-            
+                .entries(data2);
+
+            // var yearlyDataRelease = d3.nest()
+            //     .key(function(d){return d.year;})
+            //     .entries(releases);
+
+
             d3.selectAll("#calendar_viagens > *").remove()
 
             var heigthSize = yearlyData.length * 210
@@ -214,17 +238,53 @@
                     sum = d.Key;
             
                     if (sum<=0) {
-                        return "'#ffffff";
+                        if (dates_releases.includes(d.dia)) {
+                            console.log(d.dia)
+                            return "#ADFF2F";
+                        }
+                        else{
+                            return "#ffffff";
+                        }
+                        
                     }
-                    for (i=0;i<breaks.length+1;i++){
-                        if (sum<=breaks[i]){
-                            return colours[i];
+                    
+                    else{
+                        if (dates_releases.includes(d.dia)) {
+                            console.log(d.dia)
+                            return "#ADFF2F";
+                        }
+
+                        for (i=0;i<breaks.length+1;i++){
+                            if (sum<=breaks[i]){
+                                return colours[i];
+                            }
+                        }
+                        if (sum>breaks[4]){
+                            return colours[breaks.length]   
                         }
                     }
-                    if (sum>breaks[4]){
-                        return colours[breaks.length]   
-                    }
                 })
+                console.log(dates_releases)
+            // var dataRects_releases = cals.append("g")
+            //     .attr("id","dataDaysReleases")
+            //     .selectAll(".datadayreleases")
+            //     .data(dates_releases)
+            //     .enter()
+            //     .append("rect")
+            //     .attr("id",function(d) {
+            //         return format(d);
+            //     })
+            //     .attr("stroke","#fff")
+            //     .attr("width",cellSize)
+            //     .attr("height",cellSize)
+            //     .attr("x", function(d){return xOffset+calX+(d3.time.weekOfYear(d) * cellSize);})
+            //     .attr("y", function(d) { return calY+(d.getDay() * cellSize); })
+            //     .attr("fill", "#ADFF2F");
+
+
+
+
+
             dataRects.on("mouseover", function (d) {
                         d3.select(this)
                           .attr("stroke", "#fff")
@@ -246,7 +306,11 @@
 
             //append a title element to give basic mouseover info
             dataRects.append("title")
-                .text(function(d) { return toolDate(d.dia)+"\nNúmero de Bugs: "+d.Key;});
+                .text(function(d) { 
+                    if (dates_releases.includes(d.dia)) {
+                        return toolDate(d.dia)+"\nNúmero de Bugs: "+d.Key + "\nVersão: "+d.version;
+                    }
+                    return toolDate(d.dia)+"\nNúmero de Bugs: "+d.Key;});
             
             // dataRects.on("mouseover", function(d){
             //     d3.select(this)
