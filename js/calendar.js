@@ -128,7 +128,6 @@
         var dates_releases = []
         var years_release = []
         d3.json(releases_file, function(d){
-            console.log(d)
              d.releases.forEach(function(data){
                 data.dia=parseDate(data.date);
                 data.year=data.dia.getFullYear();
@@ -138,11 +137,9 @@
                 // years_release.push(parseDate(data.date).getFullYear())
             });
         });
-        console.log(releases)
         data2 = []
         d3.csv(file_name, function(error, data) {
         // d3.csv("data/avg_time_ride_day.csv", function(error, data) {
-            console.log(data)            
             //set up an array of all the dates in the data which we need to work out the range of the data
             var dates = new Array();
             var values = new Array();
@@ -150,7 +147,6 @@
             //parse the data
 
             data.forEach(function(d){
-                    console.log(d)
                     dates.push(parseDate(d.Data));
                     d.dia=parseDate(d.Data);
                     d.year=d.dia.getFullYear();//extract the year from the data
