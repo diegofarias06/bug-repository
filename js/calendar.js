@@ -1,23 +1,42 @@
     
-    calendar_chart({'value': 'hive'});
+    calendar_chart({'value': 'hive', 'value2': 'resolution'});
 
     function calendar_chart(selectObject) {
 
         // d3 = requirejs(['d3']);
         // require(["https://d3js.org/d3.v5.min.js"], function (d3) {
-        var type_chart = selectObject.value; 
-        if (type_chart == 'hive') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive.csv";
-        } else if (type_chart == 'spark') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
-            var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
-        } else if (type_chart == 'hbase') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hbase.csv";
-        } else if (type_chart == 'cassandra') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra.csv";
-        }else if (type_chart == 'camel') {
-            var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_camel.csv";
+        var type_chart = selectObject.value;
+        var type_bug = selectObject.value2;
+        console.log(selectObject    )
+        if(type_bug == 'resolution'){
+            if (type_chart == 'hive') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive.csv";
+            } else if (type_chart == 'spark') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
+                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
+            } else if (type_chart == 'hbase') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hbase.csv";
+            } else if (type_chart == 'cassandra') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra.csv";
+            }else if (type_chart == 'camel') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_camel.csv";
+            }
+        } 
+        else{
+            if (type_chart == 'hive') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive_create.csv";
+            } else if (type_chart == 'spark') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark_create.csv";
+                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
+            } else if (type_chart == 'hbase') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hbase_create.csv";
+            } else if (type_chart == 'cassandra') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra_create.csv";
+            }else if (type_chart == 'camel') {
+                var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_camel_create.csv";
+            }
         }
+        
 
         var formatDate1 = d3.time.format('%Y-%m-%d');
         var formatDate2 = d3.time.format('%d/%m/%Y');
@@ -109,6 +128,7 @@
         var dates_releases = []
         var years_release = []
         d3.json(releases_file, function(d){
+            console.log(d)
              d.releases.forEach(function(data){
                 data.dia=parseDate(data.date);
                 data.year=data.dia.getFullYear();
@@ -118,19 +138,21 @@
                 // years_release.push(parseDate(data.date).getFullYear())
             });
         });
-
+        console.log(releases)
         data2 = []
         d3.csv(file_name, function(error, data) {
         // d3.csv("data/avg_time_ride_day.csv", function(error, data) {
-            
+            console.log(data)            
             //set up an array of all the dates in the data which we need to work out the range of the data
             var dates = new Array();
             var values = new Array();
             var median = d3.format(".2f");
             //parse the data
-            data.forEach(function(d)    {
-                    dates.push(parseDate(d.ResolutionDateDay));
-                    d.dia=parseDate(d.ResolutionDateDay);
+
+            data.forEach(function(d){
+                    console.log(d)
+                    dates.push(parseDate(d.Data));
+                    d.dia=parseDate(d.Data);
                     d.year=d.dia.getFullYear();//extract the year from the data
                     data2.push(d)
 

@@ -337,6 +337,14 @@
     <!--ABOUT AREA END-->
 
     <!--SERVICE AREA-->
+    <script>
+        function getvalue() {
+          var fval = document.getElementById('type_bugs').value;
+          var sval = document.getElementById('exampleFormControlSelect1').value;
+          return {'value': sval, 'value2': fval}
+}
+    </script>
+
     <section class="service-area section-padding" id="version">
         <div class="container">  
             <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
@@ -344,10 +352,19 @@
                     <h2>Lançamento de versões</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.<br><b>
                     2 Gráficos de calendarios: i) mostrando o lançamento de versão e numero de bugs resolvido; ii) mostrando o lançamento de versões e o numero de bugs reportados</p></b>
-             
+                    
+                    <div class="form-group">
+                      <label for="type_bugs">Selecione uma das opções</label>
+                      <select class="form-control" id="type_bugs" onchange="calendar_chart(getvalue())>
+                        <option value="resolution">Resolução de Bugs</option>
+                        <option value="creation">Criação dos Bugs</option>
+                      </select>
+                    </div>
+
+
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Selecione uma das opções</label>
-                      <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(this)">
+                      <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(getvalue())">
                         <option value="hive">HIVE</option>
                         <option value="spark">SPARK</option>
                         <option value="hbase">HBASE</option>
