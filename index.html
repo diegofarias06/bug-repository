@@ -170,8 +170,9 @@
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li class="active"><a href="#home">home</a></li>
-                                <li><a href="#geral">Geral</a></li>
-                                <li><a href="#categoria">Categorias</a></li>
+                                <li><a href="#geral">Sobre</a></li>
+                                <li><a href="#projetos">Projetos</a></li>
+                                <li><a href="#relatorios">Relatórios</a></li>
                                 <li><a href="#version">Lançamento de Versão</a></li>
                                 <li><a href="#time">Tempo</a></li>
                                 <li><a href="#dependencies">Dependências</a></li>
@@ -260,152 +261,49 @@
 												Informações contidas na base, como: prioridade, tempo de resolução do bug, categoria do projeto, pessoa responsável 												pela resolução, mudança de estado do bug e dependência entre os bugs serão exploradas para ajudar a compreender 												melhor os processos de correção.
             </div>
         </div>
-            <!-- <div class="row">
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    <div class="single-service text-center wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-rocket"></div>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Lorem Ipsum is a simply dummy texts of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <a href="#" class="read-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    <div class="single-service text-center wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-camera"></div>
-                        </div>
-                        <h3>Photography</h3>
-                        <p>Lorem Ipsum is a simply dummy texts of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <a href="#" class="read-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                    <div class="single-service text-center wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-cog"></div>
-                        </div>
-                        <h3>Online Marketing</h3>
-                        <p>Lorem Ipsum is a simply dummy texts of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <a href="#" class="read-more">Learn More</a>
-                    </div>
-                </div>
-            </div> -->
-        <br>    
+		</section>
+
+    
 
     <!--SERVICE TOP AREA END-->
 
     <!--ABOUT AREA-->
-    <section class="service-top-area padding-100-50"" id="categoria">
+    <section class="service-top-area padding-100-50"" id="projetos">
         <div class="container">
             <div class="area-title text-center wow fadeIn">
-                <h2>Análise por Categoria</h2>
-                <p>texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                texttexttexttexttexttexttexttexttexttexttextt<br>
-                Gráfico interativo que mostra a quantidade de relatorios por categorias de projeto ao lado um gráfico mostrando a qtd por prioridade, ao clicar em uma categoria atualiza o grafico de prioridade.<br></p>
+                <h2>Projetos e Categorias</h2>
+                <p>
+								<br>
+                	O gráfico interativo abaixo mostra a quantidade de projetos lançados por ano. Ao serem selecionadas, suas barras dão 										destaque para o(s) ano(s) correspondente(s) e um gráfico abaixo indica, para aquele(s) ano(s) selecionado(s), quais as 										categorias dos projetos lançados e a quantidade destes em cada uma delas.
+								<br>
+									Além disso, ao passar o mouse sobre as barras de ambos os gráficos é possível ver o número de projetos para o parâmeto em 									questão (ano ou categoria).</p>
                                
 
-<!--<iframe src="vis/loadNotebook2.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 1550px;width: 650px;'></iframe> -->
+								<iframe src="vis/vis1_barras.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 900px;width: 1000px;'></iframe>
 
-<iframe src="vis/vis1_barras.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 1550px;width: 650px;'></iframe>
-
-     
-<iframe src="vis/vis2.1_barras.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 650px;width: 650px;'></iframe> 
-
-<iframe src="vis/vis2.2_heatmap.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 650px;width: 850px;'></iframe>
-
-                <div class="selectall-example2">
-                  <svg width="800" height="300"></svg>
-                </div>
-
-                <!-- <div>
-                    <script>
-                        const svg2 = d3.select('.selectall-example2').select("svg") 
-                      
-                        svg2.append('rect')
-                           .attr("x", "50")
-                           .attr("y", "50")
-                        svg2.append('rect')
-                           .attr("x", "300")
-                           .attr("y", "50")
-                        svg2.append('rect')
-                           .attr("x", "550")
-                           .attr("y", "50")
-                        svg2.selectAll('rect')
-                           .attr("width", "200")
-                           .attr("height", "200")
-                           .style('fill', 'red')
-                           .style('stroke', '#777')
-                           .style('stroke-width', '10')
-                    </script>
-                </div>
- -->
-							
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            texttexttexttexttexttexttexttexttexttexttextt<br>
-            Gráfico interativo que mostra o tempo medio de resolução de um bug por categorias de projeto ao lado um gráfico mostrando o tempo medio de resolução por prioridade, ao clicar em uma categoria atualiza o grafico de prioridade.<br>
-<!--                <div class="selectall-example3" >
-                  <svg width="800" height="300"></svg>
-                </div>
-
-                <div>
-                    <script>
-                        const svg3 = d3.select('.selectall-example3').select("svg") 
-                      
-                        svg3.append('rect')
-                           .attr("x", "50")
-                           .attr("y", "50")
-                        svg3.append('rect')
-                           .attr("x", "300")
-                           .attr("y", "50")
-                        svg3.append('rect')
-                           .attr("x", "550")
-                           .attr("y", "50")
-                        svg3.selectAll('rect')
-                           .attr("width", "200")
-                           .attr("height", "200")
-                           .style('fill', 'black')
-                           .style('stroke', '#777')
-                           .style('stroke-width', '10')
-                    </script>
-                </div>
-            </div>
- -->        </div>
-    </section>
-            <!-- <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="about-content mb50 wow fadeIn">
-                        <p>About Our Company</p>
-                        <h2>We are Theme Creator</h2>
-                        <p class="high-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <a href="#" class="read-more">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="waraper skills-member wow fadeInLeft mb50">
-                        <div class="skillst5">
-                            sds
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+<!--                <div class="selectall-example2">
+                  <svg width="1000" height="50"></svg>
+                </div> -->
+    
+        		</div>
         </div>
     </section>
+
+
+    <section class="service-top-area padding-100-50"" id="relatorios">
+        <div class="container">
+            <div class="area-title text-center wow fadeIn">
+                <h2>Relatórios e (Categorias/Prioridades)</h2>
+									<br>
+
+										<iframe src="vis/vis2.1_barras.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 500px;width: 900px;'></iframe> 
+										<iframe src="vis/vis2.2_heatmap.html" name="iframe_a" frameborder='0' scrolling = 'no' style='height: 500px;width: 850px;'></iframe>
+
+						</div>
+				</div>
+		</section>
+
+
     <!--ABOUT AREA END-->
 
     <!--SERVICE AREA-->
