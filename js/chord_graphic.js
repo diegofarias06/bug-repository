@@ -34,10 +34,10 @@
             .innerRadius(r0)
             .outerRadius(r0 + 20);
 
-        var svg = d3.select("#status_from_to").append("svg:svg")
+        var svg = d3.select("#status_from_to").append("svg")
             .attr("width", w)
             .attr("height", h)
-          .append("svg:g")
+          .append("g")
             .attr("id", "circle")
             .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
 
