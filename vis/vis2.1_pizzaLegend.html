@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<body>
+<script type="module">
+
+// Load the Observable runtime and inspector.
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+
+// Your notebook, compiled as an ES module.
+import notebook from "https://api.observablehq.com/@julianapsa/pie-charts.js?v=3";
+
+ // list the cells you want displayed in HTML elements here
+const displayedCells = ["chart1"];
+new Runtime().module(notebook, name => {
+  if (displayedCells.includes(name)) {
+    return new Inspector(document.querySelector("#"+name));
+  } else return true; // this ensures that all notebook cells are run, even if they aren't displayed
+})
+
+</script>
+
+<div id="chart1"></div>
+
+</body>

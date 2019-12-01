@@ -1,7 +1,10 @@
 //*******************************************************************
       //  CREATE MATRIX AND MAP
       //*******************************************************************
-      d3.csv('https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data-vis-status.csv', function (error, data) {
+
+      d3.csv('https://raw.githubusercontent.com/diegofarias06/bug-repository/master/status_agrupados.csv', function (error, data) {
+//      d3.csv('https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data-vis-status.csv', function (error, data) {
+
         var mpr = chordMpr(data);
 
         mpr
@@ -13,7 +16,8 @@
             if (!recs[0]) return 0;
             return +recs[0].count;
           });
-        drawChords(mpr.getMatrix(), mpr.getMap());
+        drawChords(mpr.getMatrix(), mpr.getMap());				
+
       });
       //*******************************************************************
       //  DRAW THE CHORD DIAGRAM
@@ -23,7 +27,8 @@
 
         var fill = d3.scale.ordinal()
             .domain(d3.range(21))
-            .range(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd"]);
+            //.range(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd"]);
+            .range(["#8dd3c7","#ffffb3","#fb8072","#80b1d3","#fdb462"]);
 
         var chord = d3.layout.chord()
             .padding(.02)
@@ -34,7 +39,7 @@
             .innerRadius(r0)
             .outerRadius(r0 + 20);
 
-        var svg = d3.select("#status_from_to").append("svg")
+        var svg = d3.select("#status_from_to").append("svg:svg")
             .attr("width", w)
             .attr("height", h)
           .append("g")
@@ -90,7 +95,7 @@
 
           function chordTip (d) {
             var p = d3.format(".2%"), q = d3.format(",.3r")
-            return "<strong>VIAGENS:</strong><br />"
+            return "<strong>QTD:</strong><br />"
               + d.sname + " -> " + d.tname + ": "
               + q(d.svalue) + " (" +  p(d.svalue/d.stotal) + ")"
               + (d.sname === d.tname ? "": ("<br/>"
@@ -101,7 +106,7 @@
 
           function groupTip (d) {
             var p = d3.format(".1%"), q = d3.format(",.3r")
-            return "Estação de retirada:<br/>"
+            return "Status:<br/>"
                 + d.gname + " : " + q(d.gvalue) + " ("
                 + p(d.gvalue/d.mtotal) + ")"// + q(d.mtotal) + ")"
           }
