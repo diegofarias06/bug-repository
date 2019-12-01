@@ -1,0 +1,19 @@
+has,prefers,count
+Closed,Open,94
+Closed,Reopened,1562
+Closed,Resolved,25
+In Progress,Closed,735
+In Progress,Open,11144
+In Progress,Reopened,2
+In Progress,Resolved,39743
+Open,Closed,5040
+Open,In Progress,49926
+Open,Reopened,5
+Open,Resolved,29556
+Reopened,Closed,658
+Reopened,In Progress,1327
+Reopened,Open,7
+Reopened,Resolved,3442
+Resolved,Closed,31796
+Resolved,In Progress,368
+Resolved,Reopened,3863
