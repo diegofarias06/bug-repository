@@ -1,19 +1,19 @@
 has,prefers,count
-Closed,Open,94
-Closed,Reopened,1562
-Closed,Resolved,25
-In Progress,Closed,735
-In Progress,Open,11144
-In Progress,Reopened,2
-In Progress,Resolved,39743
-Open,Closed,5040
-Open,In Progress,49926
+Closed,In Progress,378
+Closed,Open,118
+Closed,Reopened,5425
+In Progress,Closed,10205
+In Progress,Open,979
+In Progress,Patch Available,4689
+Open,Closed,34596
+Open,In Progress,13814
+Open,Patch Available,36112
 Open,Reopened,5
-Open,Resolved,29556
-Reopened,Closed,658
-Reopened,In Progress,1327
+Patch Available,Closed,30307
+Patch Available,In Progress,1387
+Patch Available,Open,10141
+Patch Available,Reopened,2
+Reopened,Closed,4100
+Reopened,In Progress,294
 Reopened,Open,7
-Reopened,Resolved,3442
-Resolved,Closed,31796
-Resolved,In Progress,368
-Resolved,Reopened,3863
+Reopened,Patch Available,1033
