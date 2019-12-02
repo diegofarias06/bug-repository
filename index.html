@@ -31,27 +31,49 @@
 
     <!--====== MAIN STYLESHEETS ======-->
     <style>
-.tooltipleft {
-					display:inline-block;
-					position:absolute;
-					text-align:left;
-					/white-space: nowrap;/
-					pointer-events: none;
-					margin-right:20px;
-					transform:translate(0, -50%);
-					padding:10px;
-					color:#666666;
-					background-color:#FFF;
-					font-weight:normal;
-					font-size:10pt;
-					border-radius:10px;
-					position:absolute;
-					z-index:500;
-					/display:none;/
-					/border:1px solid #aaa;/
-					visibility: hidden;
-					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-			}
+        path.group {
+            fill-opacity: .8;
+            transition: opacity 0.15s linear;
+            }
+            path.chord {
+            fill-opacity: .8;
+            stroke: #fff;
+            stroke-width: .25px;
+            transition: opacity 0.15s linear;
+            }
+            #circle:hover path.fade_ {
+            opacity: 0;
+            transition: opacity 0.15s linear;
+            }
+
+            .line {
+                stroke: black;
+                fill: none;
+                stroke-width: 3;
+            }
+
+
+        .tooltipleft {
+        					display:inline-block;
+        					position:absolute;
+        					text-align:left;
+        					/white-space: nowrap;/
+        					pointer-events: none;
+        					margin-right:20px;
+        					transform:translate(0, -50%);
+        					padding:10px;
+        					color:#666666;
+        					background-color:#FFF;
+        					font-weight:normal;
+        					font-size:10pt;
+        					border-radius:10px;
+        					position:absolute;
+        					z-index:500;
+        					/display:none;/
+        					/border:1px solid #aaa;/
+        					visibility: hidden;
+        					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        			}
 
 			.tooltip-hidden {
 					display: none;
