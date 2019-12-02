@@ -361,8 +361,8 @@
             <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
                 <div class="area-title text-center wow fadeIn">
                     <h2>Lançamento de versões</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.<br><b>
-                    2 Gráficos de calendarios: i) mostrando o lançamento de versão e numero de bugs resolvido; ii) mostrando o lançamento de versões e o numero de bugs reportados</p></b>
+                    <p>Nest seção, os gráficos de heatmap em formato de calendário representam quantos bugs foram resolvidos (ou relatados) por dia, as marcações em amarelo são os dias que ocorrem um 
+                    lançamento de versão. O intuito dessa visualização é verificar se mais bugs são reportados após o lançamento de uma versão e se mais bugs são resolvidos antes de um lançamento de versão. Como eram 55 projetos, foram escolhidos os 3 com mais relatórios de bugs e que tinham informações sobre lançamento de versões em seus sites ou repositórios.</p></b>
                     
                     <div class="form-group">
                       <label for="type_bugs">Selecione uma das opções</label>
@@ -378,9 +378,7 @@
                       <select class="form-control" id="exampleFormControlSelect1" onchange="calendar_chart(getvalue())">
                         <option value="hive">HIVE</option>
                         <option value="spark">SPARK</option>
-                        <option value="hbase">HBASE</option>
                         <option value="cassandra">CASSANDRA</option>
-                        <option value="camel">CAMEL</option>
                       </select>
                     </div>
 
