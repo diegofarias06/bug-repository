@@ -11,7 +11,7 @@
         if(type_bug == 'resolution'){
             if (type_chart == 'hive') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive.csv";
-                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_hive.json';
+                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releases_hive.json';
             } else if (type_chart == 'spark') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
                 var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
@@ -27,7 +27,7 @@
         else{
             if (type_chart == 'hive') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive_create.csv";
-                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_hive.json';
+                var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releases_hive.json';
             } else if (type_chart == 'spark') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark_create.csv";
                 var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
@@ -132,6 +132,7 @@
         var dates_releases = []
         var years_release = []
         d3.json(releases_file, function(d){
+            console.log(d)
              d.releases.forEach(function(data){
                 data.dia=parseDate(data.date);
                 data.year=data.dia.getFullYear();
@@ -145,7 +146,7 @@
         d3.csv(file_name, function(error, data) {
         // d3.csv("data/avg_time_ride_day.csv", function(error, data) {
             //set up an array of all the dates in the data which we need to work out the range of the data
-            var dates = new Array();
+            var dates = [];
             var values = new Array();
             var median = d3.format(".2f");
             //parse the data
@@ -162,7 +163,11 @@
             });
 
             releases.forEach(function(d){
-                data2.push(d);
+                console.log((dates.includes(d.dia) == false))
+                if(dates.includes(d.dia) == false){
+                    data2.push(d);
+
+                }
             });
 
 
