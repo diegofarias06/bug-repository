@@ -31,27 +31,60 @@
 
     <!--====== MAIN STYLESHEETS ======-->
     <style>
-.tooltipleft {
-					display:inline-block;
-					position:absolute;
-					text-align:left;
-					/white-space: nowrap;/
-					pointer-events: none;
-					margin-right:20px;
-					transform:translate(0, -50%);
-					padding:10px;
-					color:#666666;
-					background-color:#FFF;
-					font-weight:normal;
-					font-size:10pt;
-					border-radius:10px;
-					position:absolute;
-					z-index:500;
-					/display:none;/
-					/border:1px solid #aaa;/
-					visibility: hidden;
-					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+			.Olhocolumn {
+				float: left;
+				width: 50%;
 			}
+
+			/* Clear floats after the columns */
+			.Olhorow:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+        path.group {
+            fill-opacity: .8;
+            transition: opacity 0.15s linear;
+            }
+            path.chord {
+            fill-opacity: .8;
+            stroke: #fff;
+            stroke-width: .25px;
+            transition: opacity 0.15s linear;
+            }
+            #circle:hover path.fade_ {
+            opacity: 0;
+            transition: opacity 0.15s linear;
+            }
+
+            .line {
+                stroke: black;
+                fill: none;
+                stroke-width: 3;
+            }
+
+
+        .tooltipleft {
+        					display:inline-block;
+        					position:absolute;
+        					text-align:left;
+        					/white-space: nowrap;/
+        					pointer-events: none;
+        					margin-right:20px;
+        					transform:translate(0, -50%);
+        					padding:10px;
+        					color:#666666;
+        					background-color:#FFF;
+        					font-weight:normal;
+        					font-size:10pt;
+        					border-radius:10px;
+        					position:absolute;
+        					z-index:500;
+        					/display:none;/
+        					/border:1px solid #aaa;/
+        					visibility: hidden;
+        					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        			}
 
 			.tooltip-hidden {
 					display: none;
@@ -390,59 +423,33 @@
     <!--SERVICE AREA END-->
 
     <!--SERVICE AREA-->
+<!--SERVICE AREA-->
     <section class="service-area section-padding" id="status">
         <div class="container">  
-            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
-                <div class="area-title text-center wow fadeIn">
+            <div class="Olhorow">
+
+                <div class="Olhocolumn">
                     <h2>Mudança de status no tempo</h2>
-                    <br>O gráfico de acordes abaixo mostra o fluxo de mudança de estado dos bugs. Na base de dados o estado de um bug pode assumir 12 valores diferentes, mas para a visualização alguns agrupamentos foram realizados por questão de semelhança e quantidade de bugs a eles atribuídos, como: "Ready To Commit", "Closed", "Resolved" e  "Ready To Review", agora são considerados "Resolved",
+                      <br>O gráfico de acordes abaixo mostra o fluxo de mudança de estado dos bugs. Na base de dados o estado de um bug pode assumir 12 valores diferentes, mas para a visualização alguns agrupamentos foram realizados por questão de semelhança e quantidade de bugs a eles atribuídos, como: "Ready To Commit", "Closed", "Resolved" e  "Ready To Review", agora são considerados "Resolved",
 os estados "Accepted", "Testing" e "In Progress", agora são "In Progress",  "Reviewable" e "Awaiting Feedback" foram adicionados a "Patch Available" (e assim identificados). Como pode ser visto no gráfico, os estados considerados, além dos citados, foram "Open", "Reopened".
 										<br>Os arcos mais externos ao gráfico (formando um círculo) correspondem aos estados (codificados por uma cor) que um bug pode assumir, e é possível ver a quantidade de bugs que partem deles através de um label ao passar o mouse em cima, além de codificada pelo tamanho do arco. Podemos ver que mais de 70% dos estados visualizados se originam de apenas dois dos cinco: "Open" e "Patch Available"
 										<br>As informações contidas nos acordes, indicam a origem e o destino das mudanças de estado (que ocorre através dos arcos conectados), além de codificar através da largura do acorde a quantidade de mudanças ocorridas nessa relação.
 
-                    
-                    
                 </div>
+
+								<div class="Olhocolumn">
+									<div class="tooltipleft"></div>
+									<script src="js/chord_graphic.js"></script>
+								</div>
+
+							  <div id="status_from_to" class="Olhocolumn"></div>
             </div>
-            <div id="status_from_to"></div>
         </div>
 
     </section>
 
 
-    <section class="service-area section-padding" id="dependencies">
-        <div class="container">  
-            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
-                <div class="area-title text-center wow fadeIn">
-
-
-<!--                     <div>
-                        <script>
-                            const svg8 = d3.select('.selectall-example8').select("svg") 
-                          
-                            svg8.append('rect')
-                               .attr("x", "50")
-                               .attr("y", "50")
-                            svg8.append('rect')
-                               .attr("x", "300")
-                               .attr("y", "50")
-                            svg8.append('rect')
-                               .attr("x", "550")
-                               .attr("y", "50")
-                            svg8.selectAll('rect')
-                               .attr("width", "200")
-                               .attr("height", "200")
-                               .style('fill', 'brown')
-                               .style('stroke', '#777')
-                               .style('stroke-width', '10')
-                        </script>
-                    </div>
- -->                </div>
-                <br>
-
-            </div>
-        </div>
-    </section>
+ 
 
     <!--SERVICE AREA END-->   
     <!--TEAM AREA-->
@@ -568,9 +575,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </body>
 <script src="js/calendar.js"></script>
-			<div>
-        <div class="tooltipleft"></div>
-				<script src="js/chord_graphic.js"></script>
-      </div>
+
 
 </html>

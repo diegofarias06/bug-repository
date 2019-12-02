@@ -27,8 +27,8 @@
 
         var fill = d3.scale.ordinal()
             .domain(d3.range(21))
-            //.range(["#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd"]);
-            .range(["#8dd3c7","#ffffb3","#fb8072","#80b1d3","#fdb462"]);
+            .range(['#a6611a','#dfc27d','#f5f5f5','#80cdc1','#018571']);
+            // .range(["#8dd3c7","#ffffb3","#fb8072","#80b1d3","#fdb462"]);
 
         var chord = d3.layout.chord()
             .padding(.02)
