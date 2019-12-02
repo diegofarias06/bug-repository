@@ -15,10 +15,12 @@
             } else if (type_chart == 'spark') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_spark.csv";
                 var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_spark.json';
-            else if (type_chart == 'cassandra') {
+            }else if (type_chart == 'cassandra') {
                 var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_cassandra.json';
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra.csv";
+            }
         } 
+        
         else{
             if (type_chart == 'hive') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_hive_create.csv";
@@ -29,6 +31,7 @@
             }else if (type_chart == 'cassandra') {
                 var file_name =  "https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/calendario_cassandra_create.csv";
                 var releases_file = 'https://raw.githubusercontent.com/diegofarias06/bug-repository/master/data/releses_cassandra.json';
+            }
         }
         
 
