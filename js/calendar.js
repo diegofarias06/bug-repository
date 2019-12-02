@@ -41,7 +41,7 @@
         // var dias = {1: 'Seg', 2: 'Ter', 3: 'Quar', 4: 'Qui', 5: 'Sex', 6: 'Sab', 0: };
         var dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 
-        function chordTip2 (d) {
+        function chordTip (d) {
 
 
                 // if (type_chart == 'rides_per_day') {
@@ -310,9 +310,9 @@
                           .attr("stroke-width", 3);
                         d3.select(".tooltipleft")
                           .style("visibility", "visible")
-                          .html(chordTip2(d))
-                          .style("top", function () { return (d3.event.pageY - 150)+"px"})
-                          .style("left", function () { return (d3.event.pageX - 150)+"px";});
+                          .html(chordTip(d))
+                          // .style("top", function () { return (d3.event.pageY - 150)+"px"})
+                          // .style("left", function () { return (d3.event.pageX - 150)+"px";});
 
                      })
                      .on("mouseout", function (d) {
