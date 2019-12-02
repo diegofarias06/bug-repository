@@ -229,8 +229,7 @@
                                 <li><a href="#relatorios">Relatórios</a></li>
                                 <li><a href="#tempo">Tempo</a></li>
                                 <li><a href="#version">Lançamento de Versão</a></li>
-                                <li><a href="#time">Fluxo Mudança</a></li>
-                                <li><a href="#dependencies">Dependências</a></li>
+                                <li><a href="#status">Status</a></li>
                                 <li><a href="#team">Equipe</a></li>
 
                             </ul>
@@ -413,13 +412,15 @@
     <!--SERVICE AREA END-->
 
     <!--SERVICE AREA-->
-    <section class="service-area section-padding" id="time">
+    <section class="service-area section-padding" id="status">
         <div class="container">  
             <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
                 <div class="area-title text-center wow fadeIn">
-                    <h2>Tempo</h2>
+                    <h2>Mudança de status no tempo</h2>
                     <br>O gráfico de acordes abaixo mostra o fluxo de mudança de estado dos bugs. Na base de dados o estado de um bug pode assumir 12 estados diferentes, mas para a visualização alguns agrupamentos foram realizados: (por questão de semelhança e quantidade de bugs a eles atribuídos), como: "Ready To Commit", "Closed" e "Resolved", agora são considerados "Closed",
 os estados "Accepted", "Reviewable", "Ready To Review", "Awaiting Feedback" e "Testing" e "In Progress", agora são "In Progress". Como pode ser visto no gráfico, os estados que permaneceram, além dos dois citados, foram "Open", "Patch Available", "Reopened".
+										<br>Os arcos mais externos ao gráfico (formando um círculo) correspondem aos estados (codificados por uma cor) que um bug pode assumir, e é possível ver a quantidade de bugs que partem deles através de um label ao passar o mouse em cima, além de codificada pelo tamanho do arco. Podemos ver que mais de 70% dos estados visualizados se originam de apenas dois dos cinco: "Open" e "Patch Available"
+
                     
                     
                 </div>
